@@ -1,0 +1,9 @@
+- name: Configure instance
+  hosts: all
+  user: ubuntu
+  tasks:
+    - name: Wait for the domain creation
+      command: sleep 10
+    - name: Fetch SSL certificate
+      command:
+        cmd: sudo certbot --nginx --non-interactive --agree-tos -m devops@sirpi.io -d infisical-test-aws.sirpi.co.in

@@ -1,0 +1,31 @@
+- name: Configure instance
+  hosts: all
+  user: root
+  tasks:
+    - name: Fetch SSL certificate
+      command:
+        cmd: "certbot --nginx --non-interactive --agree-tos -m devops@sirpi.io -d infisical-test-aws.sirpi.co.in"
+    - name: Add firewall
+      hetzner.hcloud.firewall:
+        name: infisical-firewall
+        api_token: "{{ hetzner_pat }}"
+        rules:
+          - description: Only allow sshing from vpn IP
+            direction: in
+            protocol: tcp
+            port: 22
+            source_ips:
+              - 13.127.106.156
+          - description: Only allow requests from vpn IP
+            direction: in
+            protocol: tcp
+            port: 443
+            source_ips:
+              - 13.127.106.156
+          - description: Only allow requests from vpn IP
+            direction: in
+            protocol: tcp
+            port: 80
+            source_ips:
+              - 13.127.106.156
+        state: present
