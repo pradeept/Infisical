@@ -21,7 +21,7 @@ sudo apt install certbot python3-certbot-nginx -y
 cd /etc/nginx/sites-available
 echo "server {
     listen 80;
-    server_name infisical-test-aws.sirpi.co.in;
+    server_name <domain-name>;
 
     # Increase upload size to unlimited
     client_max_body_size 0;

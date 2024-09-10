@@ -139,7 +139,7 @@ provider "digitalocean" {
 }
 
 resource "digitalocean_record" "infisical_domain_mapping" {
-  domain = "sirpi.co.in"
+  domain = "abc.com"
   type   = "A"
   name   = var.subdomain_name
   value  = aws_instance.infisical-instance.public_ip

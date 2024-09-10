@@ -4,7 +4,7 @@
   tasks:
     - name: Fetch SSL certificate
       command:
-        cmd: "certbot --nginx --non-interactive --agree-tos -m devops@sirpi.io -d infisical-test-aws.sirpi.co.in"
+        cmd: "certbot --nginx --non-interactive --agree-tos -m devops@sirpi.io -d <domain-name>"
     - name: Add firewall
       hetzner.hcloud.firewall:
         name: infisical-firewall

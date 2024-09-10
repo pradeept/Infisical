@@ -22,7 +22,7 @@ cd /etc/nginx/
 cd sites-available
 echo "server {
     listen 80;
-    server_name infisical-auto.sirpi.co.in;
+    server_name <domain-name>;
 
     # Increase upload size to unlimited
     client_max_body_size 0;
